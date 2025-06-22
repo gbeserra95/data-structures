@@ -86,7 +86,7 @@ double_node;
 
 As listas encadeadas são ótimas para implementação de filas (FIFO - First In, First Out) e pilhas (LIFO - Last In, First Out). Elas são estruturas de dados bastante usadas na computação. Por exemplo, um servidor recebe suas requisições HTTP em uma fila e as processa à medida que a anterior for executada. A primeira requisição a ser recebida terá a prioridade de execução. Já a pilha é utilizada no gerenciamento da memória stack do computador e executa a última função incluída na stack em prioridade das primeiras.
 
-Para ver exemplos das implementações, veja [queue](./linked_list/queue.c) e [stack](.linked_list/queue.c).
+Para ver exemplos das implementações, veja [queue](./linked_list/queue.c) e [stack](./linked_list/stack.c).
 
 ```bash
 $ gcc queue.c ../helpers.c -o queue
