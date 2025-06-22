@@ -12,6 +12,9 @@ Acompanhe abaixo as minhas explicações a respeito de algumas estruturas de dad
 
 ## Índice
 
+- [Propósito](#propósito)
+- [Arrays e Listas Encadeadas](#arrays-e-listas-encadeadas)
+
 ## Propósito
 
 Não sei se comentei antes, mas estou criando esse conteúdo com base nos meus estudos através do CS50, que é o curso de Introdução à Ciência da Computação de Harvard. Eu havia feito esse curso em 2021 quando estava em transição de carreira para a área da programação. Depois que entrei no mercado de trabalho como programador, nunca me vi na necessidade de entender estrutura de dados, algoritmos, etc. Afinal, para desenvolver muitos serviços CRUD eu acabei focando mais em aprender os frameworks do que os fundamentos.
