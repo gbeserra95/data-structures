@@ -1,0 +1,10 @@
+# Ignora a pasta de configuração do VSCode
+.vscode/
+
+# Ignora os executáveis gerados (sem extensão)
+array/array
+linked_list/queue
+linked_list/stack
+
+# (Opcional) Ignora qualquer executável genérico
+*.out
