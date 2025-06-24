@@ -14,6 +14,7 @@ Acompanhe abaixo as minhas explicações a respeito de algumas estruturas de dad
 
 - [Propósito](#propósito)
 - [Arrays e Listas Encadeadas](#arrays-e-listas-encadeadas)
+- [Hash Tables](#hash-tables)
 
 ## Propósito
 
@@ -140,6 +141,7 @@ unsigned int hash(char *key)
     return sum % HASH_MAX;
 }
 ```
-![alt text](./images/hash_1.png)
 
 Utilizaremos esse algoritmo tanto para definir a posições de um novo elemento, quanto para buscá-lo. A única iteração que ocorrerá será pra validar se a chave já existe na lista encadeada. Porém, se o algoritmo for bom (não necessariamente esse do exemplo) teremos poucos elementos ligados a cada posição do array e isso irá aproximar nossa velocidade de inserção e busca de uma constante.
+
+![alt text](./images/hash_1.png)
