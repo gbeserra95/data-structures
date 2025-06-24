@@ -1,8 +1,10 @@
-// Arrays
-void print_arr(int n, int *arr);
-void arrcpy(int n, int *arr1, int *arr2);
+#define HASH_MAX 100
 
-//Linked Lists
+// Array
+void print_arr(int n, int *arr);
+void arrcpy(int n, int *src, int *dest);
+
+//Linked List
 typedef struct _q_node
 {
     int value;
@@ -43,3 +45,24 @@ stack* push(stack *s, int value);
 stack* pop(stack *s);
 void print_stack(stack *s);
 void destroy_stack(stack *s);
+
+// Hash Table
+typedef struct _h_node {
+    char *key;
+    char *value;
+    struct _h_node *prev;
+    struct _h_node *next;
+} h_node;
+
+typedef struct hash {
+    h_node *list[HASH_MAX];
+} hash;
+
+hash* create_hash(void);
+unsigned int hash_code(char *key);
+void insert(hash *h, char *key, char *value);
+void update(hash *h, char *key, char *value);
+void delete(hash *h, char *key);
+char* search(hash *h, char *key);
+void destroy_hash(hash *h);
+void destroy_list(h_node *n);

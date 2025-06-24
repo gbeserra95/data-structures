@@ -57,7 +57,7 @@ arr = new_arr;
 
 Viu como é mais complexo e como estamos utilizando mais espaço na memória apenas para aumentar um array? Processos semelhantes de realocação também ocorrem ao remover ou adicionar itens no início ou meio do array. Para listas pequenas, isso na maioria das vezes não é um problema. Porém, se estamos lidando com uma grande quantidade de dados, ou com filas (queues) e pilhas (stacks), talvez precisamos pensar em uma outra estrutura de dados. E aqui conhecemos as **listas encadeadas (linked lists)**.
 
-*Obs: em C, também existe a função realloc, que pode realocar um ponteiro para um novo endereço de memória com o novo tamanho desejado, porém, quis mostrar esse processo com o malloc para que se entenda a complexidade de fazer isso.*
+*Obs: em C, também existe a função `realloc`, que pode realocar um ponteiro para um novo endereço de memória com o novo tamanho desejado, porém, quis mostrar esse processo com o malloc para que se entenda a complexidade de fazer isso.*
 
 Com as listas encadeadas nós não precisamos nos preocupar com realocação de memória, pois ao invés de o ponteiro apontar para endereços seguidos, o ponteiro irá apontar para um outro endereço na memória, que conterá um nó.
 
@@ -111,3 +111,35 @@ Para muitos casos, quando lidamos com poucos dados, não fará tanta diferença 
 | Localidade de cache    | Boa       | Ruim                      |
 | Complexidade de código | Simples   | Mais complexa             |
 
+## Hash Tables
+
+Agora que conhecemos bem arrays e listas encadeadas, iremos unir as duas para obter algumas de suas vantagens.
+
+Embora as listas encadeadas não exijam realocação de memória ao inserir novos elementos, se tivermos muitos nós, perdemos a vantagem de uma busca rápida. Se essa lista tiver N elementos, teremos uma complexidade **O(N)** para obter um elemento. Isso não ocorre com arrays, pois podemos acessar um índice de forma constante, com complexidade **O(1)**.
+
+Entretanto, se quisermos adicionar um novo elemento em um array que já está cheio, será necessário realocar mais memória, copiar todos os valores para esse novo espaço e acrescentar o novo elemento — o que não acontece em listas encadeadas, cuja inserção tem complexidade **O(1)**.
+
+| **Estrutura de Dados** | **Complexidade de Busca** | **Complexidade de Inserção** |
+| ---------------------- | ------------------------- | ---------------------------- |
+| Array                  | O(1)                      | O(N)                         |
+| Linked List            | O(N)                      | O(1)                         |
+
+Com as **Hash Tables** (ou tabelas de dispersão), tentamos aproximar a complexidade de **busca** e **inserção** de uma constante, utilizando um **array de listas encadeadas** e uma **função hash** que determinará onde o elemento deve ser inserido ou buscado, tudo com complexidade próxima a **O(1)**.
+
+Primeiro, precisamodes definir o algoritmo da função hash. Ela será responsável por determinar qual o índice do array no qual o novo elemento será inserido.
+
+```c
+#define HASH_MAX = 100;
+
+unsigned int hash(char *key)
+{
+    int sum = 0;
+    for (int i = 0; key[i] != '\0'; i++)
+        sum += key[i];
+    
+    return sum % HASH_MAX;
+}
+```
+![alt text](./images/hash_1.png)
+
+Utilizaremos esse algoritmo tanto para definir a posições de um novo elemento, quanto para buscá-lo. A única iteração que ocorrerá será pra validar se a chave já existe na lista encadeada. Porém, se o algoritmo for bom (não necessariamente esse do exemplo) teremos poucos elementos ligados a cada posição do array e isso irá aproximar nossa velocidade de inserção e busca de uma constante.

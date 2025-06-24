@@ -5,6 +5,7 @@
 array/array
 linked_list/queue
 linked_list/stack
+hash_table/hash_table
 
 # (Opcional) Ignora qualquer executável genérico
 *.out
